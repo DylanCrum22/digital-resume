@@ -1,12 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume_October_2023</title>
-<style>
+    <title>Resume - October 2023</title>
+    <style>
         img {
-            width: 100;
+            width: 100%;
             height: auto;
         }
     </style>
@@ -18,6 +17,230 @@
     <img src="resume_page1.jpg" alt="Resume Page 1">
     <img src="resume_page2.jpg" alt="Resume Page 2">
     <!-- Add more images if the PDF has more pages -->
+
+</body>
+</html>
+Steps to follow:
+Convert the PDF into image files (one image per page).
+Save the images in your GitHub repository (e.g., resume_page1.jpg, resume_page2.jpg).
+Use the above HTML to display the images.
+2. Convert PDF to HTML
+Another option is to convert the PDF directly to HTML. This method retains the layout of the PDF as HTML, but it may require tweaking depending on the complexity of the PDF.
+
+There are online tools that can convert a PDF to HTML, such as:
+
+PDFcrowd
+PDF to HTML.net
+After converting, you’ll get an HTML file that you can integrate into your website.
+
+Example HTML:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - October 2023</title>
+</head>
+<body>
+    <h1>My Resume - October 2023</h1>
+    
+    <!-- The converted HTML content of the PDF goes here -->
+    
+</body>
+</html>
+3. Use a PDF-to-HTML JavaScript Library
+You can use JavaScript libraries like PDF.js to render the PDF directly into the HTML page, without needing to convert it manually. PDF.js allows the browser to interpret and display the PDF content as part of the webpage.
+
+Here’s an example of how you could use PDF.js:
+
+Steps:
+Include PDF.js in your HTML.
+Use JavaScript to load and render the PDF.
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - October 2023</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Resume - October 2023</h1>
+
+    <canvas id="pdf-render"></canvas>
+
+    <script>
+        const url = 'Resume_October_2023.pdf';
+
+        let pdfDoc = null,
+            pageNum = 1,
+            canvas = document.getElementById('pdf-render'),
+            ctx = canvas.getContext('2d');
+
+        // Load the PDF
+        pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
+            pdfDoc = pdfDoc_;
+            renderPage(pageNum);
+        });
+
+        // Render the page
+        function renderPage(num) {
+            pdfDoc.getPage(num).then((page) => {
+                const viewport = page.getViewport({ scale: 1.5 });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderCtx = {
+                    canvasContext: ctx,
+                    viewport: viewport,
+                };
+
+                page.render(renderCtx);
+            });
+        }
+    </script>
+</body>
+</html>
+Summary:
+Convert PDF to images if you want a simple way to display each page as part of the HTML.
+Convert PDF to HTML for better performance and web-friendly format.
+Use PDF.js if you want to render the PDF directly in the browser without needing an iframe or conversion. This allows the PDF to look like it's natively part of the web page.
+
+
+
+
+
+You said:
+Resume_October_2023.pdf
+PDF
+can  you convert this pdf to html
+ChatGPT
+Here's the HTML version of the content from the PDF, reformatted for display on a webpage:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - October 2023</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .contact-info, .education, .skills, .work-experience, .programming-languages {
+            margin-bottom: 20px;
+        }
+        .contact-info, .education {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dylan Crum</h1>
+    
+    <div class="contact-info">
+        <p>(601)-937-1618 | <a href="mailto:dylantcrum@gmail.com">dylantcrum@gmail.com</a> | Madison, MS</p>
+    </div>
+
+    <section class="summary">
+        <h2>Summary</h2>
+        <p>Currently a junior at Mississippi State University majoring in Electrical Engineering. I am seeking employment within the electrical engineering field to widen my skills, learn more about my major, and to better understand what direction I would like to take within Electrical Engineering.</p>
+    </section>
+
+    <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Microsoft Word</li>
+            <li>Microsoft Excel</li>
+            <li>Microsoft PowerPoint</li>
+            <li>Communication</li>
+            <li>Problem-solving</li>
+            <li>Creative</li>
+            <li>Situational analysis</li>
+            <li>Time management</li>
+            <li>Leadership</li>
+            <li>Gathering information</li>
+        </ul>
+    </section>
+
+    <section class="work-experience">
+        <h2>Work Experience</h2>
+        <h3>Mississippi State - Geosystem's Research Assistant</h3>
+        <p>August 2023 - Present</p>
+        <ul>
+            <li>Advise and manage co-workers to ensure finalization of high-demand projects</li>
+            <li>Set up and oversee a variety of projects and regulate the controlled variables</li>
+            <li>Measure the biomass of experimental plants and convey the measurements into a clear and precise chart</li>
+            <li>Travel and assist supervisor in completion of field testing plants and their reaction to specific chemicals</li>
+        </ul>
+
+        <h3>Domino's - Delivery Expert</h3>
+        <p>June 2019 - July 2022</p>
+        <ul>
+            <li>Guaranteed delivery of quality products</li>
+            <li>Transacted large business bank withdrawals</li>
+            <li>Verified all products were prepared for opening of the business</li>
+            <li>Established a clean workplace before the end of business hours</li>
+            <li>Communicated with co-workers to help achieve a more efficient work environment</li>
+        </ul>
+
+        <h3>Domino's - Customer Service Representative</h3>
+        <p>October 2018 - June 2019</p>
+        <ul>
+            <li>Ensured efficiency of product distribution</li>
+            <li>Resolved issues and concerns with high-level customer service</li>
+            <li>Managed and directed multiple phone lines utilizing effective communication skills</li>
+            <li>Trained new employees on food preparation, customer service, and restaurant policies</li>
+        </ul>
+    </section>
+
+    <section class="education">
+        <h2>Education</h2>
+        <p><strong>Mississippi State University</strong> | Bachelor of Science in Electrical Engineering, Minor in Computer Science</p>
+        <p>Expected graduation: May 2025</p>
+        <p>Starkville, Mississippi</p>
+
+        <p><strong>Holmes Community College</strong> | May 2021</p>
+        <p>Ridgeland, Mississippi</p>
+    </section>
+
+    <section class="programming-languages">
+        <h2>Programming Languages</h2>
+        <ul>
+            <li>Python</li>
+            <li>C++</li>
+            <li>Java</li>
+        </ul>
+    </section>
 
 </body>
 </html>
