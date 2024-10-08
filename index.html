@@ -3,51 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - October 2023</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-    <style>
-        canvas {
-            display: block;
-            margin: 0 auto;
-            width: 100%;
-            height: auto;
-        }
-    </style>
+    <title>Document</title>
 </head>
+    # Dylan Crum's Digital Resume
 <body>
-    <h1>My Resume - October 2023</h1>
+        # Dylan Thomas Crum
 
-    <canvas id="pdf-render"></canvas>
+    ## Education
+    ### Mississippi State University - May 2025
+    ### Bachelor of Science in Electrical Engineering
+    ### Minor in Computer Science
 
-    <script>
-        const url = 'Resume_October_2023.pdf';
-
-        let pdfDoc = null,
-            pageNum = 1,
-            canvas = document.getElementById('pdf-render'),
-            ctx = canvas.getContext('2d');
-
-        // Load the PDF
-        pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
-            pdfDoc = pdfDoc_;
-            renderPage(pageNum);
-        });
-
-        // Render the page
-        function renderPage(num) {
-            pdfDoc.getPage(num).then((page) => {
-                const viewport = page.getViewport({ scale: 1.5 });
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-
-                const renderCtx = {
-                    canvasContext: ctx,
-                    viewport: viewport,
-                };
-
-                page.render(renderCtx);
-            });
-        }
-    </script>
+    ## Job Skills
+    +Customer service
+    +Programming languages such as Python, C++, and Java
+    +Conflict resolution and management
+    +Critical thinking
 </body>
 </html>
